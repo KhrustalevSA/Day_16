@@ -16,7 +16,7 @@ public class Main {
         printFieldsNames(withCollectionData);
         //2
         //printMethodsNames(simpleData);
-        //printMethodsNames(withCollectionData);
+        printMethodsNames(withCollectionData);
 
         simpleData = new SimpleData(7, (byte) 0x07, "7", "7");
         String[] stringArray = {"6", "6"};
@@ -56,10 +56,6 @@ public class Main {
     }
 
     private static void printFieldsNames(Object object) {
-        Class equal = object.getClass().getSuperclass();
-       // equal = object.getClass().getSuperclass();
-        Field[] a = null;
-
         printLine();
         Field[] fields = object.getClass().getDeclaredFields();
         for (Field f : fields) {
@@ -76,6 +72,10 @@ public class Main {
     private static void printMethodsNames(Object object) {
         printLine();
         Method[] methods = object.getClass().getDeclaredMethods();
+        for (Method m : methods) {
+            System.out.println(m.getName() + " return " + m.getReturnType().getCanonicalName());
+        }
+        methods = object.getClass().getSuperclass().getDeclaredMethods();
         for (Method m : methods) {
             System.out.println(m.getName() + " return " + m.getReturnType().getCanonicalName());
         }

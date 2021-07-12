@@ -64,12 +64,12 @@ public class Main {
         Field[] fields = object.getClass().getDeclaredFields();
         for (Field f : fields) {
             System.out.println(f.getName() + " as " + f.getType().getCanonicalName());
-            a = f.getClass().getDeclaredFields();;
         }
-        if ( !object.equals(equal) ){
-            printFieldsNames();
+        fields = object.getClass().getSuperclass().getDeclaredFields();
+        for (Field f : fields) {
+            System.out.println(f.getName() + " as " + f.getType().getCanonicalName());
+        }
 
-        }
 
     }
 

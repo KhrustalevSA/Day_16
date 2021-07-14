@@ -3,7 +3,7 @@ package com.company;
 /* Объект с предком и массивом*/
 public class WithArrayData extends SimpleData {
     private String[] stringArray;
-
+    private int testValue = 10;
     public WithArrayData() {
     }
 

@@ -13,10 +13,10 @@ public class Main {
         WithCollectionData withCollectionData = new WithCollectionData();
         //1
         //printFieldsNames(simpleData);
-        printFieldsNames(withCollectionData);
+        //printFieldsNames(withCollectionData);
         //2
         //printMethodsNames(simpleData);
-        printMethodsNames(withCollectionData);
+        //printMethodsNames(withCollectionData);
 
         simpleData = new SimpleData(7, (byte) 0x07, "7", "7");
         String[] stringArray = {"6", "6"};
@@ -40,14 +40,19 @@ public class Main {
         SimpleData newSimpleData = new SimpleData();
         //printFieldsValues(simpleData);
         //printFieldsValues(newSimpleData);
-        copy(simpleData, newSimpleData);
+
+ */
+        copy(simpleData, new SimpleData());
+        //copy(withCollectionData, new WithCollectionData());
         //printFieldsValues(newSimpleData);
 
         //6
-        //printFieldsValues(copyOf(newSimpleData));
+
+
+        printFieldsValues(copyOf(new SimpleData()));
 
         //7
-        //benchmark();*/
+        //benchmark();
 
     }
 
@@ -130,6 +135,9 @@ public class Main {
                 Field distField = distClass.getDeclaredField(sourceField.getName());
                 sourceField.setAccessible(true);
                 distField.setAccessible(true);
+                if( true ){
+                    copy(distField,sourceField);
+                }
                 distField.set(dist, sourceField.get(source));
             } catch (Exception e) {
                 System.out.println(e);

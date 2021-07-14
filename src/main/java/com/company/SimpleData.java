@@ -4,6 +4,7 @@ package com.company;
 public class SimpleData {
     private int intData;
     private byte byteData;
+    ReferenceCheck referenceCheck = new ReferenceCheck();
     //private long longData;
     private Object objectData;
     public String stringData;
